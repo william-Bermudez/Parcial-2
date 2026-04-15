@@ -61,13 +61,27 @@ private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (!string.IsNullOrEmpty(textmarca.Text) && !string.IsNullOrEmpty(textmodelo.Text) &&  !string.IsNullOrEmpty(textprecio.Text))
             {
-                double precio = Convert.ToDouble(textprecio.Text);
-               
-                dttodo.Rows.Add(textmarca.Text, textmodelo.Text, textprecio.Text);
+                if (!textmarca.Text.All(c => char.IsLetter(c) || char.IsWhiteSpace(c)))
+                {
+                    MessageBox.Show("La marca solo debe contener letras.");
+                    return;
+                }
+
+            
+                double precio;
+                if (!double.TryParse(textprecio.Text, out precio))
+                {
+                    MessageBox.Show("El precio solo debe ser número.");
+                    return;
+                }
+
+              
+                dttodo.Rows.Add(textmarca.Text, textmodelo.Text, precio);
+
+            
                 textmodelo.Clear();
                 textprecio.Clear();
                 textmarca.Clear();
-               
             }
             else
             {

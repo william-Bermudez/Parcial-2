@@ -153,7 +153,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(906, 497);
+            this.ClientSize = new System.Drawing.Size(667, 497);
             this.Controls.Add(this.dttodo);
             this.Controls.Add(this.btagregar);
             this.Controls.Add(this.textprecio);
